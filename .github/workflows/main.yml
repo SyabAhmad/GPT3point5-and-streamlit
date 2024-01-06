@@ -1,0 +1,12 @@
+jobs:
+  your-job-name:
+    runs-on: ubuntu-latest
+
+    steps:
+    # ... (previous steps)
+
+    - name: Run your script
+      run: |
+        python your_script.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

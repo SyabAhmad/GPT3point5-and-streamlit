@@ -1,8 +1,16 @@
 import streamlit as st
 import requests
 from openai import OpenAI
+import os
 
-apiKey = "YOUR_API_KEY"
+
+# apiKey = "YOUR_API_KEY"
+# OpenAI.api_key = apiKey
+
+apiKey = os.getenv("OPENAI_API_KEY")
+if apiKey is None:
+    raise ValueError("OpenAI API key not found. Make sure to set the OPENAI_API_KEY secret in your GitHub repository.")
+
 OpenAI.api_key = apiKey
 
 endpoint = "https://api.openai.com/v1/completions"
